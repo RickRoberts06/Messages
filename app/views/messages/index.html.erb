@@ -1,0 +1,22 @@
+
+<h1> Support Requests</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Department</th>
+    <th>Message</th>
+    <th>Actions</th>
+  </tr>
+  <% @messages.each do |m| %>
+  <tr>
+    <td><%= m.name %></td>
+    <td><%= m.email %></td>
+    <td><%= m.department %></td>
+    <td><%= m.message %></td>
+    <td><%= link_to "Edit", message_path(m.id) %></td>
+    <td><%= link_to "delete", message_path(m.id),
+                      method: :delete, data: {confirm: "Are you sure"} %></td>
+    <td><%= link_to "Not done" %></td>
+  <% end %>
+</table>
